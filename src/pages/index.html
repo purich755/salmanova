@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<!-- @include head -->
+<link rel="preload" as="image" href="/assets/img/hero2-720.webp" imagesrcset="/assets/img/hero2-720.webp 720w, /assets/img/hero2-1200.webp 1200w" imagesizes="(max-width: 900px) 80vw, 36vw" fetchpriority="high">
+<link rel="preload" as="fetch" href="/data/catalog.json" crossorigin>
+<script type="application/ld+json">{{LD_STORE}}</script>
+</head>
+<body data-page="home">
+<!-- @include sprite -->
+<div class="pre" id="pre" aria-hidden="true"><span class="pre-mark"></span><span class="pre-line"></span></div>
+<!-- @include header -->
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="hero-glow" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i></div>
+    <div class="hero-in wrap">
+      <div class="hero-copy">
+        <p class="eyebrow" data-hero-fade><span class="eyebrow-line"></span>Авторские украшения</p>
+        <h1 class="display hero-title" aria-label="Светлана Салманова">
+          <span class="ht-line" aria-hidden="true">Светлана</span>
+          <span class="ht-line ht-2" aria-hidden="true"><em>Салманова</em></span>
+        </h1>
+        <p class="lead hero-lead" data-hero-fade>Эксклюзивные украшения из венецианского стекла и натуральных камней</p>
+        <div class="hero-cta" data-hero-fade>
+          <a class="btn btn--ink" href="#catalog"><span>Смотреть каталог</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="link-arrow" href="/about">О Светлане <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <dl class="hero-facts" data-hero-fade>
+          <div><dt data-count-to="{{N_PRODUCTS}}">{{N_PRODUCTS}}</dt><dd>{{N_PRODUCTS_WORD}} в каталоге</dd></div>
+          <div><dt data-count-to="{{N_COLLECTIONS}}">{{N_COLLECTIONS}}</dt><dd>{{N_COLLECTIONS_WORD}}</dd></div>
+          <div><dt data-count-to="18">18</dt><dd>лет с итальянской мастерской Fabio</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-art" aria-hidden="false">
+        <figure class="arch arch--hero" data-hero-arch>
+          <img src="/assets/img/hero2-720.webp" srcset="/assets/img/hero2-720.webp 720w, /assets/img/hero2-1200.webp 1200w" sizes="(max-width: 900px) 80vw, 36vw" alt="Светлана Салманова в колье и браслете из жемчуга" width="720" height="960" fetchpriority="high">
+        </figure>
+        <figure class="frame frame--a" data-hero-frame data-speed="0.18">
+          <img src="/assets/img/hero1-720.webp" alt="Светлана Салманова: пояс-цепь и браслеты с бирюзовыми бусинами" width="720" height="960" loading="eager" decoding="async">
+        </figure>
+        <figure class="frame frame--b" data-hero-frame data-speed="-0.14">
+          <img src="/assets/img/hero3-720.webp" alt="Светлана Салманова: длинное колье с сердцем из камня и браслет" width="720" height="960" loading="eager" decoding="async">
+        </figure>
+        <span class="bead bead--1" data-bead data-speed="0.35" aria-hidden="true"></span>
+        <span class="bead bead--2" data-bead data-speed="-0.25" aria-hidden="true"></span>
+        <span class="bead bead--3" data-bead data-speed="0.5" aria-hidden="true"></span>
+        <p class="hero-sign" aria-hidden="true">Venezia · Murano</p>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#new" aria-label="Листать к новинкам"><span></span></a>
+  </section>
+
+  <div class="marquee" aria-label="Коллекции">
+    <div class="marquee-track" data-marquee>{{MARQUEE}}</div>
+  </div>
+
+  <section class="new" id="new" aria-labelledby="new-h">
+    <div class="wrap sec-head sec-head--row">
+      <div>
+        <p class="eyebrow" data-reveal><span class="eyebrow-line"></span>{{N_NEW}} {{N_NEW_WORD}}</p>
+        <h2 class="h2" id="new-h" data-split>Новинки</h2>
+      </div>
+      <div class="rail-ctrl" data-reveal>
+        <button class="icon-btn icon-btn--line" type="button" data-rail-prev aria-label="Прокрутить назад"><svg aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-chev"/></svg></button>
+        <button class="icon-btn icon-btn--line" type="button" data-rail-next aria-label="Прокрутить вперёд"><svg aria-hidden="true"><use href="#i-chev"/></svg></button>
+        <a class="link-arrow" href="#catalog" data-show-part="905133045582">Все новинки <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+    <div class="rail rail--new" data-rail>{{NEW_RAIL}}</div>
+  </section>
+
+  <section class="catalog" id="catalog" aria-labelledby="catalog-h">
+    <div class="wrap">
+      <header class="sec-head sec-head--row">
+        <div>
+          <p class="eyebrow" data-reveal><span class="eyebrow-line"></span>Колье, браслеты, серьги, подвески и кольца</p>
+          <h2 class="h2" id="catalog-h" data-split>Каталог <em>украшений</em></h2>
+        </div>
+        <p class="cat-count" data-count aria-live="polite">{{N_PRODUCTS}} {{N_PRODUCTS_WORD}}</p>
+      </header>
+
+      <div class="types" role="group" aria-label="Тип украшения" data-types>{{TYPE_CHIPS}}</div>
+
+      <div class="cat-layout">
+        <aside class="filters" id="filters" aria-label="Фильтры каталога" data-filters>
+          <div class="filters-in" data-lenis-prevent>
+            <div class="f-head">
+              <p class="f-title">Фильтры</p>
+              <button class="icon-btn" type="button" data-filters-close aria-label="Закрыть фильтры"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+            </div>
+            <label class="f-search">
+              <svg aria-hidden="true"><use href="#i-search"/></svg>
+              <span class="sr">Поиск по каталогу</span>
+              <input type="search" placeholder="Поиск: жемчуг, коралл…" data-q autocomplete="off" enterkeyhint="search">
+            </label>
+            <div class="f-group">
+              <p class="f-legend">Наличие</p>
+              <label class="switch"><input type="checkbox" data-instock><span class="switch-ui" aria-hidden="true"></span><span>Только в наличии</span></label>
+            </div>
+            <div class="f-group">
+              <p class="f-legend" id="price-l">Цена, ₽</p>
+              <div class="range" data-range style="--a:0%;--b:100%">
+                <div class="range-track" aria-hidden="true"><i></i></div>
+                <input type="range" min="{{PRICE_MIN}}" max="{{PRICE_MAX}}" step="100" value="{{PRICE_MIN}}" data-pmin aria-label="Цена от">
+                <input type="range" min="{{PRICE_MIN}}" max="{{PRICE_MAX}}" step="100" value="{{PRICE_MAX}}" data-pmax aria-label="Цена до">
+              </div>
+              <div class="range-vals" aria-labelledby="price-l">
+                <label><span class="sr">от</span><input type="text" inputmode="numeric" value="{{PRICE_MIN}}" data-pmin-n aria-label="Цена от, рублей"></label>
+                <span aria-hidden="true">—</span>
+                <label><span class="sr">до</span><input type="text" inputmode="numeric" value="{{PRICE_MAX}}" data-pmax-n aria-label="Цена до, рублей"></label>
+              </div>
+            </div>
+            <div class="f-group">
+              <p class="f-legend">Коллекции</p>
+              <ul class="f-parts" data-parts>{{PART_LIST}}</ul>
+              <button class="link-btn f-more" type="button" data-parts-more aria-expanded="false">Показать все коллекции</button>
+            </div>
+            <div class="f-foot">
+              <button class="link-btn" type="button" data-reset>Сбросить</button>
+              <button class="btn btn--ink" type="button" data-filters-close>Показать <span data-fshow>{{N_PRODUCTS}}</span></button>
+            </div>
+          </div>
+        </aside>
+
+        <div class="cat-main">
+          <div class="cat-bar">
+            <button class="btn btn--line btn--sm filters-open" type="button" data-filters-open aria-controls="filters"><svg aria-hidden="true"><use href="#i-filter"/></svg><span>Фильтры</span><span class="f-badge" data-fbadge hidden></span></button>
+            <div class="chips" data-chips></div>
+            <label class="sort">
+              <span>Сортировка</span>
+              <select data-sort>
+                <option value="default">По умолчанию</option>
+                <option value="asc">Сначала дешевле</option>
+                <option value="desc">Сначала дороже</option>
+              </select>
+            </label>
+          </div>
+          <div class="grid" data-grid>{{CARDS}}</div>
+          <div class="empty" data-empty hidden>
+            <span class="cart-empty-bead" aria-hidden="true"></span>
+            <p class="empty-h">Ничего не нашлось</p>
+            <p>Попробуйте убрать часть фильтров или изменить запрос.</p>
+            <button class="btn btn--line" type="button" data-reset>Сбросить фильтры</button>
+          </div>
+          <div class="more" data-more-wrap>
+            <p class="more-meta">Показано <b data-shown>{{PAGE}}</b> из <b data-total>{{N_PRODUCTS}}</b></p>
+            <div class="more-bar" aria-hidden="true"><i data-more-bar style="width:{{MORE_PCT}}%"></i></div>
+            <button class="btn btn--line" type="button" data-more>Показать ещё</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="teaser" aria-labelledby="teaser-h">
+    <div class="wrap teaser-in">
+      <figure class="arch teaser-photo" data-parallax-img>
+        <img src="/assets/img/about-720.webp" srcset="/assets/img/about-720.webp 720w, /assets/img/about-1200.webp 1200w" sizes="(max-width: 900px) 90vw, 40vw" alt="Светлана Салманова на палубе теплохода, в длинных колье и браслете из жемчуга" width="720" height="960" loading="lazy" decoding="async">
+      </figure>
+      <div class="teaser-copy">
+        <p class="eyebrow" data-reveal><span class="eyebrow-line"></span>О Светлане</p>
+        <h2 class="h2 h2--md" id="teaser-h" data-split>Ювелирная эстетика сквозь призму времени и&nbsp;итальянских традиций</h2>
+        <p class="lead" data-reveal>Светлана Салманова — дизайнер, создающий не просто украшения, а многослойные художественные образы.</p>
+        <div class="big18" data-reveal>
+          <span class="big18-n" data-count-to="18">18</span>
+          <p>лет Светлана работает с итальянской мастерской Fabio и заказывает там эксклюзивные элементы: <em>Simalto</em>, <em>Aventurine</em>, <em>Millefiori</em>.</p>
+        </div>
+        <a class="btn btn--line" href="/about" data-reveal><span>Подробнее о Светлане</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="delivery" id="delivery" aria-labelledby="delivery-h">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow" data-reveal><span class="eyebrow-line"></span>Почта России · СДЭК · Яндекс</p>
+        <h2 class="h2" id="delivery-h" data-split>Доставка</h2>
+      </header>
+      <div class="dl-grid">
+        <ol class="carriers">
+          <li data-reveal><span class="n">01</span><span class="c-name">Почта России</span></li>
+          <li data-reveal><span class="n">02</span><span class="c-name">СДЭК</span><span class="c-note">до пункта выдачи или курьером по адресу</span></li>
+          <li data-reveal><span class="n">03</span><span class="c-name">Яндекс</span></li>
+        </ol>
+        <div class="free" data-free>
+          <p class="free-k">Бесплатная доставка</p>
+          <p class="free-sum"><span class="free-from">от</span> 15&nbsp;000&nbsp;₽</p>
+          <p class="free-p">При покупке от 15&nbsp;000&nbsp;₽ доставка бесплатная</p>
+          <div class="free-line" aria-hidden="true"><i data-free-line></i></div>
+        </div>
+      </div>
+      <ol class="steps">
+        <li data-reveal><span class="step-n">1</span><p class="step-h">Соберите заявку</p><p>Кнопка «Оставить заявку» есть в карточке каждого изделия.</p></li>
+        <li data-reveal><span class="step-n">2</span><p class="step-h">Укажите доставку</p><p>СДЭК до пункта выдачи или курьером, Почта России — и адрес.</p></li>
+        <li data-reveal><span class="step-n">3</span><p class="step-h">Выберите способ связи</p><p>WhatsApp, Viber или Telegram — как вам удобнее.</p></li>
+      </ol>
+      <p class="dl-note" data-reveal>Возврат возможен в течение 14 дней после покупки. <a class="link-u" href="/info#returns">Подробнее о возврате</a></p>
+    </div>
+  </section>
+
+  <section class="stores" id="address" aria-labelledby="stores-h">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow" data-reveal><span class="eyebrow-line"></span>Москва и Самара</p>
+        <h2 class="h2" id="stores-h" data-split>Адреса <em>магазинов</em></h2>
+      </header>
+      <div class="stores-grid">
+        <ul class="store-list" data-stores>{{STORES}}</ul>
+        <div class="map" data-map>
+          <div class="map-frame">
+            <iframe data-map-frame title="Карта: салон в Москве, ул. Лесная 10-16" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="map-ph" data-map-ph><svg aria-hidden="true"><use href="#i-pin"/></svg><span>Загружаем карту…</span></div>
+          </div>
+          <a class="map-open link-arrow" data-map-open href="https://yandex.ru/maps/?ll=37.589230,55.778535&amp;z=17&amp;pt=37.589230,55.778535,pm2rdl" target="_blank" rel="noopener">Открыть в Яндекс Картах <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- @include footer -->
+<!-- @include overlays -->
+</body>
+</html>

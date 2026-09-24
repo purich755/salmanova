@@ -1,0 +1,111 @@
+<dialog class="pd" id="product" aria-labelledby="pd-title">
+  <div class="pd-scroll" data-lenis-prevent>
+    <button class="icon-btn pd-close" type="button" data-pd-close aria-label="Закрыть карточку"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    <div class="pd-in">
+      <div class="pd-gallery">
+        <div class="pd-stage" data-stage>
+          <img class="pd-img" data-main alt="" width="1100" height="1375">
+          <button class="icon-btn pd-nav pd-prev" type="button" data-prev aria-label="Предыдущее фото"><svg aria-hidden="true"><use href="#i-chev"/></svg></button>
+          <button class="icon-btn pd-nav pd-next" type="button" data-next aria-label="Следующее фото"><svg aria-hidden="true"><use href="#i-chev"/></svg></button>
+          <span class="pd-zoom-hint" aria-hidden="true"><svg><use href="#i-zoom"/></svg>Нажмите, чтобы рассмотреть</span>
+        </div>
+        <div class="pd-thumbs" data-thumbs role="group" aria-label="Фото изделия"></div>
+      </div>
+      <div class="pd-info">
+        <div class="pd-parts" data-pd-parts></div>
+        <h2 class="pd-title" id="pd-title" data-pd-title></h2>
+        <p class="pd-text" data-pd-text></p>
+        <div class="pd-price" data-pd-price></div>
+        <p class="pd-stock" data-pd-stock></p>
+        <div class="pd-actions">
+          <button class="btn btn--ink" type="button" data-pd-add><span>Оставить заявку</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <a class="btn btn--line" data-pd-wa href="https://wa.me/79277282224" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>Спросить в WhatsApp</span></a>
+        </div>
+        <ul class="pd-notes">
+          <li>Доставка почтой России, СДЭК, Яндекс</li>
+          <li>При покупке от 15 000 ₽ доставка бесплатная</li>
+          <li>Возврат возможен в течение 14 дней после покупки</li>
+        </ul>
+      </div>
+    </div>
+    <section class="pd-related" data-pd-related hidden>
+      <h3 class="pd-related-h" data-pd-related-h></h3>
+      <div class="rail rail--sm" data-pd-rail></div>
+    </section>
+  </div>
+</dialog>
+
+<dialog class="drawer" id="cart" aria-labelledby="cart-title">
+  <div class="drawer-in">
+    <header class="drawer-head">
+      <h2 class="drawer-title" id="cart-title">Заявка <sup data-cart-n></sup></h2>
+      <button class="icon-btn" type="button" data-cart-close aria-label="Закрыть заявку"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </header>
+    <div class="drawer-body" data-lenis-prevent>
+      <div class="cart-empty" data-cart-empty>
+        <span class="cart-empty-bead" aria-hidden="true"></span>
+        <p class="cart-empty-h">В заявке пока пусто</p>
+        <p>Добавьте украшения из каталога — кнопка «Оставить заявку» есть в карточке каждого изделия.</p>
+        <a class="btn btn--line" href="{{HOME}}#catalog" data-cart-close>Перейти в каталог</a>
+      </div>
+
+      <div class="cart-filled" data-cart-filled hidden>
+        <ul class="cart-list" data-cart-list></ul>
+        <div class="cart-sum">
+          <div class="free-meter">
+            <p data-free-text></p>
+            <div class="meter" aria-hidden="true"><i data-free-bar></i></div>
+          </div>
+          <p class="cart-total"><span>Итого</span><b data-cart-total>0 ₽</b></p>
+        </div>
+
+        <form class="order" data-order novalidate>
+          <h3 class="order-h">Оформление</h3>
+          <div class="field">
+            <label for="f-phone">Ваш номер телефона</label>
+            <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+            <p class="field-err" data-err="phone"></p>
+          </div>
+          <fieldset class="field">
+            <legend>Способ доставки</legend>
+            <div class="pills">
+              <label class="pill"><input type="radio" name="delivery" value="СДЭК Пункт выдачи" checked><span>СДЭК Пункт выдачи</span></label>
+              <label class="pill"><input type="radio" name="delivery" value="СДЭК Курьером по адресу"><span>СДЭК Курьером по адресу</span></label>
+              <label class="pill"><input type="radio" name="delivery" value="Почта России"><span>Почта России</span></label>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="f-name">Ваше ФИО</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+            <p class="field-err" data-err="name"></p>
+          </div>
+          <div class="field">
+            <label for="f-addr">Адрес доставки или пункта выдачи</label>
+            <textarea id="f-addr" name="address" rows="2" autocomplete="street-address" required></textarea>
+            <p class="field-err" data-err="address"></p>
+          </div>
+          <fieldset class="field">
+            <legend>Способ связи</legend>
+            <div class="pills">
+              <label class="pill"><input type="radio" name="contact" value="WhatsApp" checked><span><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</span></label>
+              <label class="pill"><input type="radio" name="contact" value="Viber"><span><svg aria-hidden="true"><use href="#i-viber"/></svg>Viber</span></label>
+              <label class="pill"><input type="radio" name="contact" value="Telegram"><span><svg aria-hidden="true"><use href="#i-tg"/></svg>Telegram</span></label>
+            </div>
+          </fieldset>
+          <button class="btn btn--ink btn--wide" type="submit"><span>Оставить заявку</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </form>
+      </div>
+
+      <div class="order-done" data-done hidden tabindex="-1">
+        <span class="done-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
+        <p class="done-h">Заявка собрана</p>
+        <p class="done-p">Отправьте её в удобный мессенджер или на почту — текст заявки уже подготовлен.</p>
+        <div class="done-actions" data-done-actions></div>
+        <pre class="done-text" data-done-text></pre>
+        <button class="link-btn" type="button" data-new-order>Начать новую заявку</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<div class="toast" data-toast role="status" aria-live="polite"></div>

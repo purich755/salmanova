@@ -1,0 +1,38 @@
+<a class="skip" href="#main">Перейти к содержанию</a>
+<div class="grain" aria-hidden="true"></div>
+<header class="hdr" data-hdr>
+  <div class="hdr-in wrap">
+    <a class="logo" href="/" aria-label="Salmanova — авторские украшения. На главную"><span class="logo-mark" aria-hidden="true"></span></a>
+    <nav class="nav" aria-label="Основное меню">
+      <a href="{{HOME}}#catalog" data-nav="catalog">Каталог</a>
+      <a href="{{HOME}}#delivery" data-nav="delivery">Доставка</a>
+      <a href="{{HOME}}#address" data-nav="address">Адреса магазинов</a>
+      <a href="/about"{{NAV_ABOUT}}>О нас</a>
+      <a href="/info"{{NAV_INFO}}>Инфо о компании</a>
+    </nav>
+    <div class="hdr-act">
+      <a class="hdr-phone" href="tel:+79277282224"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>8 927 728 22 24</span></a>
+      <button class="cart-btn" type="button" data-cart-open aria-label="Открыть заявку">
+        <svg aria-hidden="true"><use href="#i-bag"/></svg>
+        <span class="cart-btn-label">Заявка</span>
+        <span class="cart-count" data-cart-count aria-hidden="true">0</span>
+      </button>
+      <button class="burger" type="button" data-menu-toggle aria-label="Открыть меню" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu" hidden data-lenis-prevent>
+  <nav class="menu-nav" aria-label="Меню">
+    <a href="{{HOME}}#catalog"><span>01</span>Каталог</a>
+    <a href="{{HOME}}#delivery"><span>02</span>Доставка</a>
+    <a href="{{HOME}}#address"><span>03</span>Адреса магазинов</a>
+    <a href="/about"><span>04</span>О нас</a>
+    <a href="/info"><span>05</span>Инфо о компании</a>
+  </nav>
+  <div class="menu-foot">
+    <a class="menu-phone" href="tel:+79277282224">8 927 728 22 24</a>
+    <a href="mailto:salmanova-shop@mail.ru">salmanova-shop@mail.ru</a>
+    {{SOCIALS}}
+  </div>
+</div>
