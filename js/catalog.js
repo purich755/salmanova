@@ -1,5 +1,5 @@
 // Каталог: фильтры, сетка, «показать ещё», витрины-ленты, карточка товара.
-import { cardHTML, esc, money, img, plural, priceHTML, PAGE, NEW_PART } from './tpl.js';
+import { cardHTML, esc, money, img, plural, priceHTML, PAGE, NEW_PART, BASE } from './tpl.js';
 import { loadCatalog, cart } from './store.js';
 import { $, $$, setupDialog, toast, flyToCart, debounce, lockScroll, reduced } from './ui.js';
 
@@ -133,9 +133,9 @@ function initProduct(data, api) {
     el.stock.className = 'pd-stock' + (p.q === 0 ? ' is-out' : '');
     el.stock.textContent = p.q === 0 ? 'Нет в наличии' : p.q > 0 ? `В наличии: ${p.q} шт.` : '';
     el.parts.innerHTML = p.c.map((id) => data.partById.get(id)).filter(Boolean)
-      .map((pt) => `<a href="/?c=${pt.id}#catalog" data-part-link="${pt.id}">${esc(pt.t)}</a>`).join('');
+      .map((pt) => `<a href="${BASE}/?c=${pt.id}#catalog" data-part-link="${pt.id}">${esc(pt.t)}</a>`).join('');
     updateAdd();
-    const msg = `Здравствуйте! Интересует ${p.t.toLowerCase()}${first ? ` — ${first}` : ''}${p.p ? `, ${money(p.p)}` : ''}. ${location.origin}/#p-${p.id}`;
+    const msg = `Здравствуйте! Интересует ${p.t.toLowerCase()}${first ? ` — ${first}` : ''}${p.p ? `, ${money(p.p)}` : ''}. ${location.origin}${BASE}/#p-${p.id}`;
     el.wa.href = `https://wa.me/79277282224?text=${encodeURIComponent(msg)}`;
 
     // галерея: сразу показываем уже загруженную миниатюру, крупный кадр подменяем по готовности

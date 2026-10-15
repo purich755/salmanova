@@ -1,4 +1,5 @@
 // Данные каталога и корзина-заявка (хранится в localStorage).
+import { BASE } from './tpl.js';
 
 let catalog = null;
 let loading = null;
@@ -6,7 +7,7 @@ let loading = null;
 export function loadCatalog() {
   if (catalog) return Promise.resolve(catalog);
   if (!loading) {
-    loading = fetch('/data/catalog.json')
+    loading = fetch(BASE + '/data/catalog.json')
       .then((r) => { if (!r.ok) throw new Error('catalog ' + r.status); return r.json(); })
       .then((d) => {
         d.byId = new Map(d.products.map((p, i) => { p.i = i; return [p.id, p]; }));

@@ -9,7 +9,11 @@ export const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&a
 // toLocaleString('ru-RU') не группирует четырёхзначные числа — группируем сами
 export const money = (n) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽';
 
-export const img = (id, i = 0, size = 's') => `/assets/p/${id}-${i}-${size}.webp`;
+// Префикс адресов: '' на своём домене, '/salmanova' на GitHub Pages. Сборка пишет его в <html data-base>.
+// При пререндере в Node документа нет — пути префиксует сама сборка (tools/build-html.mjs).
+export const BASE = (typeof document !== 'undefined' && document.documentElement.dataset.base) || '';
+
+export const img = (id, i = 0, size = 's') => `${BASE}/assets/p/${id}-${i}-${size}.webp`;
 
 export const plural = (n, one, few, many) => {
   const a = Math.abs(n) % 100, b = a % 10;

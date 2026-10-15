@@ -1,5 +1,5 @@
 // Статический сервер для разработки и самопроверки: чистые URL (/about → about.html), gzip, 404.
-//   node tools/serve.mjs [port]
+//   node tools/serve.mjs [port] [base]   — base, например /salmanova, чтобы проверить сборку под GitHub Pages
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -7,6 +7,7 @@ import zlib from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 
 const PORT = Number(process.argv[2] || 8517);
+const BASE = (process.argv[3] || '').replace(/\/$/, '');
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const MIME = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
@@ -27,7 +28,8 @@ function resolve(p) {
 }
 
 http.createServer((req, res) => {
-  const p = decodeURIComponent(req.url.split('?')[0]);
+  let p = decodeURIComponent(req.url.split('?')[0]);
+  if (BASE) p = p === BASE ? '/' : p.startsWith(BASE + '/') ? p.slice(BASE.length) : '/__nope__';
   let file = resolve(p), status = 200;
   if (!file) { file = path.join(ROOT, '404.html'); status = 404; }
   const type = MIME[path.extname(file).toLowerCase()] || 'application/octet-stream';

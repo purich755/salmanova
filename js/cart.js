@@ -1,5 +1,5 @@
 // Заявка: панель со списком, счётчик в шапке, форма как на исходном сайте и передача заявки.
-import { esc, money, img, plural, FREE_DELIVERY } from './tpl.js';
+import { esc, money, img, plural, FREE_DELIVERY, BASE } from './tpl.js';
 import { loadCatalog, cart } from './store.js';
 import { $, $$, setupDialog } from './ui.js';
 
@@ -139,7 +139,7 @@ export function initCart() {
     const sum = rows.reduce((s, x) => s + (x.p.p || 0) * x.n, 0);
     const lines = rows.map((x, i) => {
       const first = (x.p.d || '').split('\n')[0];
-      return `${i + 1}. ${x.p.t}${first ? ` — ${first}` : ''}\n   ${x.p.p ? `${money(x.p.p)} × ${x.n}` : `цена по запросу × ${x.n}`}\n   ${location.origin}/#p-${x.p.id}`;
+      return `${i + 1}. ${x.p.t}${first ? ` — ${first}` : ''}\n   ${x.p.p ? `${money(x.p.p)} × ${x.n}` : `цена по запросу × ${x.n}`}\n   ${location.origin}${BASE}/#p-${x.p.id}`;
     });
     return [
       'Заявка с сайта salmanova.ru', '',

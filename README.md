@@ -11,8 +11,23 @@ node tools/serve.mjs 8517
 ```
 
 Откройте http://localhost:8517. Сервер отдаёт чистые адреса `/about` и `/info`, как на исходном сайте.
-На хостинге нужны такие же чистые URL: для Vercel они включены в `vercel.json`, Netlify и GitHub Pages
-отдают `about.html` по `/about` сами.
+
+## Публикация
+
+Сайт публикуется на GitHub Pages: https://purich755.github.io/salmanova/. Каждый пуш в `main` запускает
+`.github/workflows/pages.yml`: страницы пересобираются с префиксом `/salmanova` и выкладываются.
+Vercel не подходит: `*.vercel.app` в России открывается не у всех, особенно через мобильный интернет.
+
+Чтобы проверить сборку с префиксом локально:
+
+```bash
+BASE=/salmanova node tools/build-html.mjs && node tools/serve.mjs 8518 /salmanova
+```
+
+В Git Bash перед командой нужно добавить `MSYS_NO_PATHCONV=1`, иначе `/salmanova` превратится в путь Windows.
+После проверки верните обычную сборку командой `node tools/build-html.mjs`.
+
+Когда сайт переедет на домен salmanova.ru, префикс не нужен: страницы собираются без `BASE`.
 
 ## Что где
 

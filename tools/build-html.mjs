@@ -1,6 +1,7 @@
 // Собирает страницы из src/pages + src/partials в корень сайта.
 // Первую страницу каталога и витрину новинок пререндерит тем же шаблоном, что и браузер (js/tpl.js).
 //   node tools/build-html.mjs
+//   BASE=/salmanova node tools/build-html.mjs   — для GitHub Pages (сайт живёт в подпапке)
 import fs from 'node:fs';
 import { cardHTML, esc, plural, img, PAGE, NEW_PART } from '../js/tpl.js';
 
@@ -118,6 +119,12 @@ const COMMON = {
   NAV_ABOUT: '', NAV_INFO: '',
 };
 
+const BASE = (process.env.BASE || '').replace(/\/$/, '');
+// Все корневые адреса в атрибутах (/assets/…, /about, /?c=…, /#catalog) получают префикс BASE
+const rebase = (html) => !BASE ? html : html
+  .replace(/(\s(?:href|src|data-src|srcset|imagesrcset)=")\/(?!\/)/g, `$1${BASE}/`)
+  .replace(/, \/(assets\/)/g, `, ${BASE}/$1`);
+
 const partial = (name) => fs.readFileSync(`src/partials/${name}.html`, 'utf8');
 for (const [name, vars] of Object.entries(PAGES)) {
   let html = fs.readFileSync(`src/pages/${name}.html`, 'utf8');
@@ -127,6 +134,7 @@ for (const [name, vars] of Object.entries(PAGES)) {
     if (!(k in V)) throw new Error(`${name}: нет значения для ${m}`);
     return V[k];
   });
+  html = rebase(html).replace('<html lang="ru">', `<html lang="ru" data-base="${BASE}">`);
   fs.writeFileSync(`${name}.html`, html);
   console.log('✓', `${name}.html`, (html.length / 1024).toFixed(0), 'KB');
 }
